@@ -12,3 +12,5 @@
  - It must be possible to disable all sound effects
  - It must be possible to abandon a Pomodoro
 
+## Acknowledgements ##
+ - [Lerg](https://gist.github.com/Lerg/b0a643a13f751747976f) - for the App icon creation script
