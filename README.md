@@ -14,3 +14,4 @@
 
 ## Acknowledgements ##
  - [Lerg](https://gist.github.com/Lerg/b0a643a13f751747976f) - for the App icon creation script
+ - [Tommy](http://stackoverflow.com/a/13755158) - for how to ensure touch events are only handled inside a circular button

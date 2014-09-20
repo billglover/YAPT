@@ -23,24 +23,36 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zr7-44-p9K">
-                                <rect key="frame" x="274" y="550" width="53" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zr7-44-p9K" customClass="RoundButton">
+                                <rect key="frame" x="250" y="480" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5nv-Fk-Nlq"/>
+                                    <constraint firstAttribute="width" constant="100" id="BFT-XL-Ln0"/>
+                                    <constraint firstAttribute="height" constant="100" id="EKH-kB-G6J"/>
+                                    <constraint firstAttribute="width" constant="80" id="id5-X6-ifz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5nv-Fk-Nlq"/>
+                                        <exclude reference="id5-X6-ifz"/>
+                                    </mask>
+                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.76689877719999999" green="0.18540409999999999" blue="0.18540409999999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="2ip-JG-XF1"/>
-                            <constraint firstAttribute="centerX" secondItem="Zr7-44-p9K" secondAttribute="centerX" id="9tN-y6-F40"/>
-                            <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="64" id="BSe-7R-1v4"/>
+                            <constraint firstItem="Zr7-44-p9K" firstAttribute="centerX" secondItem="8Xj-PD-QnM" secondAttribute="centerX" id="6Ba-mH-1ek"/>
+                            <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" priority="250" constant="64" id="BSe-7R-1v4"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="QZ8-s7-lBw"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="64" id="R5M-5s-lto"/>
+                            <constraint firstAttribute="bottom" secondItem="Zr7-44-p9K" secondAttribute="bottom" constant="20" symbolic="YES" id="U2e-cK-MA5"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="bja-fW-c9G"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Zr7-44-p9K" secondAttribute="bottom" constant="8" symbolic="YES" id="jaw-H5-o9S"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

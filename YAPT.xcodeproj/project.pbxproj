@@ -14,6 +14,7 @@
 		A910AF1519CDCAA00026E2D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A910AF1419CDCAA00026E2D7 /* Images.xcassets */; };
 		A910AF1819CDCAA00026E2D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A910AF1619CDCAA00026E2D7 /* LaunchScreen.xib */; };
 		A910AF2419CDCAA00026E2D7 /* YAPTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF2319CDCAA00026E2D7 /* YAPTTests.m */; };
+		A910AF3119CE10B50026E2D7 /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF3019CE10B50026E2D7 /* RoundButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		A910AF1D19CDCAA00026E2D7 /* YAPTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YAPTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A910AF2219CDCAA00026E2D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A910AF2319CDCAA00026E2D7 /* YAPTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAPTTests.m; sourceTree = "<group>"; };
+		A910AF2F19CE10B50026E2D7 /* RoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
+		A910AF3019CE10B50026E2D7 /* RoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 		A910AF2D19CDCAD10026E2D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A910AF2F19CE10B50026E2D7 /* RoundButton.h */,
+				A910AF3019CE10B50026E2D7 /* RoundButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A910AF3119CE10B50026E2D7 /* RoundButton.m in Sources */,
 				A910AF1019CDCAA00026E2D7 /* ViewController.m in Sources */,
 				A910AF0D19CDCAA00026E2D7 /* AppDelegate.m in Sources */,
 				A910AF0A19CDCAA00026E2D7 /* main.m in Sources */,
