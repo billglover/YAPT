@@ -81,10 +81,10 @@
 		A910AF0619CDCAA00026E2D7 /* YAPT */ = {
 			isa = PBXGroup;
 			children = (
+				A910AF2E19CDCADF0026E2D7 /* Controllers */,
+				A910AF2D19CDCAD10026E2D7 /* Views */,
 				A910AF0B19CDCAA00026E2D7 /* AppDelegate.h */,
 				A910AF0C19CDCAA00026E2D7 /* AppDelegate.m */,
-				A910AF0E19CDCAA00026E2D7 /* ViewController.h */,
-				A910AF0F19CDCAA00026E2D7 /* ViewController.m */,
 				A910AF1119CDCAA00026E2D7 /* Main.storyboard */,
 				A910AF1419CDCAA00026E2D7 /* Images.xcassets */,
 				A910AF1619CDCAA00026E2D7 /* LaunchScreen.xib */,
@@ -117,6 +117,22 @@
 				A910AF2219CDCAA00026E2D7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A910AF2D19CDCAD10026E2D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A910AF2E19CDCADF0026E2D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A910AF0E19CDCAA00026E2D7 /* ViewController.h */,
+				A910AF0F19CDCAA00026E2D7 /* ViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +184,7 @@
 				TargetAttributes = {
 					A910AF0319CDCAA00026E2D7 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 7X7TY4V6Z4;
 					};
 					A910AF1C19CDCAA00026E2D7 = {
 						CreatedOnToolsVersion = 6.0.1;
