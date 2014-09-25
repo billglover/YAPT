@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zr7-44-p9K" customClass="RoundButton">
-                                <rect key="frame" x="250" y="480" width="100" height="100"/>
+                                <rect key="frame" x="250" y="460" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="5nv-Fk-Nlq"/>
                                     <constraint firstAttribute="width" constant="100" id="BFT-XL-Ln0"/>
@@ -36,28 +36,47 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="percent">
+                                        <real key="value" value="0.75"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="5nv-Fk-Nlq"/>
                                         <exclude reference="id5-X6-ifz"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="progressButtonPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1aG-Wa-XC6"/>
+                                </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nkn-j0-0zN">
+                                <rect key="frame" x="14" y="422" width="572" height="31"/>
+                                <connections>
+                                    <action selector="demoSliderChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="ihS-h1-2AE"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.76689877719999999" green="0.18540409999999999" blue="0.18540409999999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="2ip-JG-XF1"/>
                             <constraint firstItem="Zr7-44-p9K" firstAttribute="centerX" secondItem="8Xj-PD-QnM" secondAttribute="centerX" id="6Ba-mH-1ek"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" priority="250" constant="64" id="BSe-7R-1v4"/>
+                            <constraint firstItem="Zr7-44-p9K" firstAttribute="top" secondItem="Nkn-j0-0zN" secondAttribute="bottom" constant="8" symbolic="YES" id="DEs-dm-NdK"/>
+                            <constraint firstAttribute="centerX" secondItem="Nkn-j0-0zN" secondAttribute="centerX" id="DLe-j0-ClQ"/>
+                            <constraint firstItem="Nkn-j0-0zN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Ptg-sh-gwc"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="QZ8-s7-lBw"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="64" id="R5M-5s-lto"/>
-                            <constraint firstAttribute="bottom" secondItem="Zr7-44-p9K" secondAttribute="bottom" constant="20" symbolic="YES" id="U2e-cK-MA5"/>
+                            <constraint firstAttribute="bottom" secondItem="Zr7-44-p9K" secondAttribute="bottom" constant="40" id="U2e-cK-MA5"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="bja-fW-c9G"/>
+                            <constraint firstItem="Nkn-j0-0zN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="r5X-66-IUL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="R5M-5s-lto"/>
                                 <exclude reference="bja-fW-c9G"/>
+                                <exclude reference="DLe-j0-ClQ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -71,6 +90,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="demoSlider" destination="Nkn-j0-0zN" id="QeA-U2-PWK"/>
+                        <outlet property="progressButton" destination="Zr7-44-p9K" id="Q8g-lI-m5v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

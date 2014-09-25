@@ -435,6 +435,7 @@
 				A910AF2919CDCAA00026E2D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A910AF2A19CDCAA00026E2D7 /* Build configuration list for PBXNativeTarget "YAPTTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +444,7 @@
 				A910AF2C19CDCAA00026E2D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

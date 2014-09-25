@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RoundButton : UIButton
-
+@property (nonatomic, readwrite) IBInspectable CGFloat percent;
 @end
