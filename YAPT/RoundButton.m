@@ -71,7 +71,8 @@ IB_DESIGNABLE
         // we want a clear background
         self.progressLayer.backgroundColor = [UIColor clearColor].CGColor;
         
-        self.outlineLayer.path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
+        self.outlineLayer.path = [UIBezierPath bezierPathWithArcCenter:center
+                                                                radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
         self.outlineLayer.strokeColor = [[UIColor whiteColor] CGColor];
         self.outlineLayer.fillColor = [[UIColor clearColor] CGColor];
         self.outlineLayer.lineWidth = 1.0f;
@@ -101,7 +102,8 @@ IB_DESIGNABLE
         self.progressLayer.backgroundColor = [UIColor clearColor].CGColor;
         
         // draw the progress bar
-        self.progressLayer.path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
+        self.progressLayer.path = [UIBezierPath bezierPathWithArcCenter:center
+                                                                 radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
         self.progressLayer.strokeColor = [[UIColor whiteColor] CGColor];
         self.progressLayer.fillColor = [[UIColor clearColor] CGColor];
         self.progressLayer.lineWidth = 2.5f;
@@ -114,6 +116,25 @@ IB_DESIGNABLE
 
         [self.layer insertSublayer:self.progressLayer atIndex:0];
     }
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    if (highlighted) {
+        
+        // change the background color without action ("animation")
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        self.outlineLayer.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.25].CGColor;
+        [CATransaction commit];
+    } else {
+        
+        // change the background color without action ("animation")
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        self.outlineLayer.backgroundColor = [UIColor clearColor].CGColor;
+        [CATransaction commit];
+    }
+    [self.outlineLayer setNeedsDisplay];
 }
 
 #pragma mark - Getters & Setters

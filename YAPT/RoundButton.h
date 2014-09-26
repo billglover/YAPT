@@ -10,4 +10,9 @@
 
 @interface RoundButton : UIButton
 @property (nonatomic, readwrite) IBInspectable CGFloat percent;
+@property (nonatomic, readwrite) IBInspectable CGFloat backgroundAlpha;
 @end
+
+// TODO: use tint color to draw button
+// TODO: use IBInspectable properties to set the alpha
+// TODO: use IBInspectable properties to set the progress width
