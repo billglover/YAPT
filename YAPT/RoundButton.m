@@ -12,6 +12,7 @@ IB_DESIGNABLE
 @interface RoundButton ()
 @property (nonatomic, strong, readwrite) CAShapeLayer *outlineLayer;
 @property (nonatomic, strong, readwrite) CAShapeLayer *progressLayer;
+@property (nonatomic, strong, readwrite) CALayer *backgroundLayer;
 @end
 
 @implementation RoundButton
@@ -19,16 +20,35 @@ IB_DESIGNABLE
 #pragma mark - Initialisation
 
 - (void)awakeFromNib {
+    [self drawBackground];
     [self drawOutline];
     [self drawProgressBar];
 }
 
 - (void)prepareForInterfaceBuilder {
+    [self drawBackground];
     [self drawOutline];
     [self drawProgressBar];
 }
 
 #pragma mark - Drawing
+
+- (void) drawBackground {
+    if (!self.backgroundLayer) {
+        
+        // trim the background based on button padding
+        self.backgroundLayer = [CALayer layer];
+        self.backgroundLayer.frame = CGRectInset(self.bounds, self.buttonPadding, self.buttonPadding);
+        self.backgroundLayer.cornerRadius = self.backgroundLayer.bounds.size.width/2.0f;
+        
+        // set the background
+        self.backgroundLayer.backgroundColor = [UIColor clearColor].CGColor;
+        
+        // add the layer to the button
+        [self.layer insertSublayer:self.backgroundLayer atIndex:0];
+    }
+    
+}
 
 - (void) drawOutline {
     
@@ -38,7 +58,7 @@ IB_DESIGNABLE
         self.outlineLayer = [CAShapeLayer layer];
         self.outlineLayer.frame = self.bounds;
         self.outlineLayer.cornerRadius = self.outlineLayer.bounds.size.width/2.0f;
-        [self.layer setMasksToBounds:YES];
+        [self.outlineLayer setMasksToBounds:YES];
         
         // Gather some useful details about the geometry
         CGPoint center = CGPointMake(CGRectGetMidX(self.outlineLayer.bounds), CGRectGetMidY(self.outlineLayer.bounds));
@@ -105,15 +125,15 @@ IB_DESIGNABLE
         // change the background color without action ("animation")
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        self.outlineLayer.backgroundColor = self.tintColor.CGColor;
-        self.outlineLayer.opacity = self.backgroundAlphaHighlighted;
+        self.backgroundLayer.backgroundColor = self.tintColor.CGColor;
+        self.backgroundLayer.opacity = self.backgroundAlphaHighlighted;
         [CATransaction commit];
     } else {
         
         // change the background color without action ("animation")
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        self.outlineLayer.backgroundColor = [UIColor clearColor].CGColor;
+        self.backgroundLayer.backgroundColor = [UIColor clearColor].CGColor;
         [CATransaction commit];
     }
     

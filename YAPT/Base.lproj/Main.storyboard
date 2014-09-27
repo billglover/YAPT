@@ -38,7 +38,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="percent">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="0.75"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="outlineAlpha">
                                         <real key="value" value="0.5"/>
@@ -66,7 +66,7 @@
                                     <action selector="progressButtonPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1aG-Wa-XC6"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nkn-j0-0zN">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.75" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nkn-j0-0zN">
                                 <rect key="frame" x="14" y="422" width="572" height="31"/>
                                 <connections>
                                     <action selector="demoSliderChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="ihS-h1-2AE"/>
