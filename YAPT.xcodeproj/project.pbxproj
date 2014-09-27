@@ -13,8 +13,9 @@
 		A910AF1319CDCAA00026E2D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A910AF1119CDCAA00026E2D7 /* Main.storyboard */; };
 		A910AF1519CDCAA00026E2D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A910AF1419CDCAA00026E2D7 /* Images.xcassets */; };
 		A910AF1819CDCAA00026E2D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A910AF1619CDCAA00026E2D7 /* LaunchScreen.xib */; };
-		A910AF2419CDCAA00026E2D7 /* YAPTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF2319CDCAA00026E2D7 /* YAPTTests.m */; };
 		A910AF3119CE10B50026E2D7 /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF3019CE10B50026E2D7 /* RoundButton.m */; };
+		A96D395319D6C6BD00350DF5 /* YAPTPomodoro.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */; };
+		A96D395519D6D56900350DF5 /* YAPTPomodoroTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +41,11 @@
 		A910AF1719CDCAA00026E2D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A910AF1D19CDCAA00026E2D7 /* YAPTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YAPTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A910AF2219CDCAA00026E2D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A910AF2319CDCAA00026E2D7 /* YAPTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAPTTests.m; sourceTree = "<group>"; };
 		A910AF2F19CE10B50026E2D7 /* RoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
 		A910AF3019CE10B50026E2D7 /* RoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
+		A96D395119D6C6BC00350DF5 /* YAPTPomodoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPTPomodoro.h; sourceTree = "<group>"; };
+		A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoro.m; sourceTree = "<group>"; };
+		A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoroTestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 		A910AF0619CDCAA00026E2D7 /* YAPT */ = {
 			isa = PBXGroup;
 			children = (
+				A96D395019D693E500350DF5 /* Models */,
 				A910AF2E19CDCADF0026E2D7 /* Controllers */,
 				A910AF2D19CDCAD10026E2D7 /* Views */,
 				A910AF0B19CDCAA00026E2D7 /* AppDelegate.h */,
@@ -108,7 +112,7 @@
 		A910AF2019CDCAA00026E2D7 /* YAPTTests */ = {
 			isa = PBXGroup;
 			children = (
-				A910AF2319CDCAA00026E2D7 /* YAPTTests.m */,
+				A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */,
 				A910AF2119CDCAA00026E2D7 /* Supporting Files */,
 			);
 			path = YAPTTests;
@@ -138,6 +142,15 @@
 				A910AF0F19CDCAA00026E2D7 /* ViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A96D395019D693E500350DF5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A96D395119D6C6BC00350DF5 /* YAPTPomodoro.h */,
+				A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +257,7 @@
 				A910AF3119CE10B50026E2D7 /* RoundButton.m in Sources */,
 				A910AF1019CDCAA00026E2D7 /* ViewController.m in Sources */,
 				A910AF0D19CDCAA00026E2D7 /* AppDelegate.m in Sources */,
+				A96D395319D6C6BD00350DF5 /* YAPTPomodoro.m in Sources */,
 				A910AF0A19CDCAA00026E2D7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A910AF2419CDCAA00026E2D7 /* YAPTTests.m in Sources */,
+				A96D395519D6D56900350DF5 /* YAPTPomodoroTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
