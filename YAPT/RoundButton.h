@@ -10,8 +10,10 @@
 
 @interface RoundButton : UIButton
 @property (nonatomic, readwrite) IBInspectable CGFloat percent;
-@property (nonatomic, readwrite) IBInspectable CGFloat backgroundAlpha;
+@property (nonatomic, readwrite) IBInspectable CGFloat backgroundAlphaHighlighted;
+@property (nonatomic, readwrite) IBInspectable CGFloat outlineAlpha;
+@property (nonatomic, readwrite) IBInspectable CGFloat outlineWidth;
+@property (nonatomic, readwrite) IBInspectable CGFloat progressBarWidth;
+@property (nonatomic, readwrite) IBInspectable CGFloat buttonPadding;
 @end
 
-// TODO: use IBInspectable properties to set the alpha
-// TODO: use IBInspectable properties to set the progress width

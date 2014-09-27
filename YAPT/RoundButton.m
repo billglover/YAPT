@@ -9,8 +9,6 @@
 #import "RoundButton.h"
 IB_DESIGNABLE
 
-#define BUTTON_PADDING 2.0f
-
 @interface RoundButton ()
 @property (nonatomic, strong, readwrite) CAShapeLayer *outlineLayer;
 @property (nonatomic, strong, readwrite) CAShapeLayer *progressLayer;
@@ -18,7 +16,6 @@ IB_DESIGNABLE
 
 
 @implementation RoundButton
-
 
 // Only handle touch events inside the circle
 // Code from: http://stackoverflow.com/questions/9871740/circle-button-on-ios
@@ -37,16 +34,9 @@ IB_DESIGNABLE
 
 }
 
-- (id)initWithCoder:(NSCoder *)coder {
-
-    self = [super initWithCoder:coder];
-
-    if (self) {
-        [self drawOutline];
-        [self drawProgressBar];
-    }
-
-    return self;
+- (void)awakeFromNib {
+    [self drawOutline];
+    [self drawProgressBar];
 }
 
 - (void)prepareForInterfaceBuilder {
@@ -66,7 +56,7 @@ IB_DESIGNABLE
         
         // Gather some useful details about the geometry
         CGPoint center = CGPointMake(CGRectGetMidX(self.outlineLayer.bounds), CGRectGetMidY(self.outlineLayer.bounds));
-        CGFloat radius = MIN(CGRectGetMidY(self.outlineLayer.bounds), CGRectGetMidX(self.outlineLayer.bounds)) - BUTTON_PADDING;
+        CGFloat radius = MIN(CGRectGetMidY(self.outlineLayer.bounds), CGRectGetMidX(self.outlineLayer.bounds)) - self.buttonPadding;
         
         // we want a clear background
         self.progressLayer.backgroundColor = [UIColor clearColor].CGColor;
@@ -75,8 +65,8 @@ IB_DESIGNABLE
                                                                 radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
         self.outlineLayer.strokeColor = self.tintColor.CGColor;
         self.outlineLayer.fillColor = [[UIColor clearColor] CGColor];
-        self.outlineLayer.lineWidth = 1.0f;
-        self.outlineLayer.opacity = 0.20f;
+        self.outlineLayer.lineWidth = self.outlineWidth;
+        self.outlineLayer.opacity = self.outlineAlpha;
         self.outlineLayer.strokeStart = 0.0f;
         self.outlineLayer.strokeEnd = 1.0f;
         
@@ -96,7 +86,7 @@ IB_DESIGNABLE
         
         // Gather some useful details about the geometry
         CGPoint center = CGPointMake(CGRectGetMidX(self.progressLayer.bounds), CGRectGetMidY(self.progressLayer.bounds));
-        CGFloat radius = MIN(CGRectGetMidY(self.progressLayer.bounds), CGRectGetMidX(self.progressLayer.bounds)) - BUTTON_PADDING;
+        CGFloat radius = MIN(CGRectGetMidY(self.progressLayer.bounds), CGRectGetMidX(self.progressLayer.bounds)) - self.buttonPadding;
         
         // we want a clear background
         self.progressLayer.backgroundColor = [UIColor clearColor].CGColor;
@@ -106,10 +96,10 @@ IB_DESIGNABLE
                                                                  radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
         self.progressLayer.strokeColor = self.tintColor.CGColor;
         self.progressLayer.fillColor = [[UIColor clearColor] CGColor];
-        self.progressLayer.lineWidth = 2.5f;
+        self.progressLayer.lineWidth = self.progressBarWidth;
         self.progressLayer.lineCap = kCALineCapRound;
         self.progressLayer.strokeStart = 0.0f;
-        self.progressLayer.strokeEnd = 1.0f;
+        self.progressLayer.strokeEnd = self.percent;
         
         // rotate so that we start at the 12 o'clock position
         self.progressLayer.transform = CATransform3DMakeRotation(-M_PI_2, 0.0, 0.0, 1.0);
@@ -125,7 +115,7 @@ IB_DESIGNABLE
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
         self.outlineLayer.backgroundColor = self.tintColor.CGColor;
-        self.outlineLayer.opacity = 0.25;
+        self.outlineLayer.opacity = self.backgroundAlphaHighlighted;
         [CATransaction commit];
     } else {
         
@@ -149,9 +139,9 @@ IB_DESIGNABLE
         _percent = percent;
     }
     
-    // we need to re-draw
-    NSLog(@"roundButton: percent = %f", _percent);
+    // we need to re-draw the progress bar
     self.progressLayer.strokeEnd = _percent;
+    [self.progressLayer setNeedsDisplay];
 }
 
 @end
