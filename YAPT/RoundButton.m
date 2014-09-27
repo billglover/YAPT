@@ -14,25 +14,9 @@ IB_DESIGNABLE
 @property (nonatomic, strong, readwrite) CAShapeLayer *progressLayer;
 @end
 
-
 @implementation RoundButton
 
-// Only handle touch events inside the circle
-// Code from: http://stackoverflow.com/questions/9871740/circle-button-on-ios
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
-{
-    // check we are inside the super view
-    if(![super pointInside:point withEvent:event]) return NO;
-    
-    // check we are inside the circle
-    CGFloat radius = self.bounds.size.width * 0.5f;
-    CGFloat squareOfDistanceFromCentre = (radius - point.x)*(radius - point.x) + (radius - point.y)*(radius - point.y);
-    if(squareOfDistanceFromCentre > radius*radius) return NO;
-    
-    // touch is inside the circle
-    return YES;
-
-}
+#pragma mark - Initialisation
 
 - (void)awakeFromNib {
     [self drawOutline];
@@ -43,6 +27,8 @@ IB_DESIGNABLE
     [self drawOutline];
     [self drawProgressBar];
 }
+
+#pragma mark - Drawing
 
 - (void) drawOutline {
     
@@ -61,6 +47,7 @@ IB_DESIGNABLE
         // we want a clear background
         self.progressLayer.backgroundColor = [UIColor clearColor].CGColor;
         
+        // draw the outline
         self.outlineLayer.path = [UIBezierPath bezierPathWithArcCenter:center
                                                                 radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
         self.outlineLayer.strokeColor = self.tintColor.CGColor;
@@ -70,6 +57,7 @@ IB_DESIGNABLE
         self.outlineLayer.strokeStart = 0.0f;
         self.outlineLayer.strokeEnd = 1.0f;
         
+        // add the layer to the button
         [self.layer insertSublayer:self.outlineLayer atIndex:0];
     }
 }
@@ -104,9 +92,12 @@ IB_DESIGNABLE
         // rotate so that we start at the 12 o'clock position
         self.progressLayer.transform = CATransform3DMakeRotation(-M_PI_2, 0.0, 0.0, 1.0);
 
+        // add the layer to the button
         [self.layer insertSublayer:self.progressLayer atIndex:0];
     }
 }
+
+#pragma mark - User Interaction
 
 - (void)setHighlighted:(BOOL)highlighted {
     if (highlighted) {
@@ -125,7 +116,27 @@ IB_DESIGNABLE
         self.outlineLayer.backgroundColor = [UIColor clearColor].CGColor;
         [CATransaction commit];
     }
+    
+    // redraw the background
     [self.outlineLayer setNeedsDisplay];
+}
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    
+    // Only handle touch events inside the circle
+    // Code from: http://stackoverflow.com/questions/9871740/circle-button-on-ios
+    
+    // check we are inside the super view
+    if(![super pointInside:point withEvent:event]) return NO;
+    
+    // check we are inside the circle
+    CGFloat radius = self.bounds.size.width * 0.5f;
+    CGFloat squareOfDistanceFromCentre = (radius - point.x)*(radius - point.x) + (radius - point.y)*(radius - point.y);
+    if(squareOfDistanceFromCentre > radius*radius) return NO;
+    
+    // touch is inside the circle
+    return YES;
+    
 }
 
 #pragma mark - Getters & Setters
@@ -139,7 +150,7 @@ IB_DESIGNABLE
         _percent = percent;
     }
     
-    // we need to re-draw the progress bar
+    // re-draw the progress bar
     self.progressLayer.strokeEnd = _percent;
     [self.progressLayer setNeedsDisplay];
 }
