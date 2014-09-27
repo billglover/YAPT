@@ -73,7 +73,7 @@ IB_DESIGNABLE
         
         self.outlineLayer.path = [UIBezierPath bezierPathWithArcCenter:center
                                                                 radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
-        self.outlineLayer.strokeColor = [[UIColor whiteColor] CGColor];
+        self.outlineLayer.strokeColor = self.tintColor.CGColor;
         self.outlineLayer.fillColor = [[UIColor clearColor] CGColor];
         self.outlineLayer.lineWidth = 1.0f;
         self.outlineLayer.opacity = 0.20f;
@@ -104,7 +104,7 @@ IB_DESIGNABLE
         // draw the progress bar
         self.progressLayer.path = [UIBezierPath bezierPathWithArcCenter:center
                                                                  radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES].CGPath;
-        self.progressLayer.strokeColor = [[UIColor whiteColor] CGColor];
+        self.progressLayer.strokeColor = self.tintColor.CGColor;
         self.progressLayer.fillColor = [[UIColor clearColor] CGColor];
         self.progressLayer.lineWidth = 2.5f;
         self.progressLayer.lineCap = kCALineCapRound;
@@ -124,7 +124,8 @@ IB_DESIGNABLE
         // change the background color without action ("animation")
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
-        self.outlineLayer.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.25].CGColor;
+        self.outlineLayer.backgroundColor = self.tintColor.CGColor;
+        self.outlineLayer.opacity = 0.25;
         [CATransaction commit];
     } else {
         
