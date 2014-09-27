@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YAPTPomodoro.h"
 
 @interface ViewController : UIViewController
 
-
 @end
-
