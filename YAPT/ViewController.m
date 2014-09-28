@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 #import "RoundButton.h"
 
 @interface ViewController ()
@@ -84,6 +85,13 @@
     [self.progressButton setTitle:@"Start" forState:UIControlStateNormal];
 }
 
+- (void)playGongSound {
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"gong" ofType:@"aif"];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
+    AudioServicesPlayAlertSound (soundID);
+}
+
 #pragma mark - Getters & Setters
 
 - (YAPTPomodoro *)currentPomodoro {
@@ -109,6 +117,9 @@
 
 - (void)handleTimerComplete {
     NSLog(@"Timer complete event fired");
+    
+    // play the gong
+    [self playGongSound];
     
     // discard the pomodoro
     self.timer = nil;

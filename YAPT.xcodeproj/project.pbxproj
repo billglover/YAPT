@@ -17,6 +17,8 @@
 		A96D395319D6C6BD00350DF5 /* YAPTPomodoro.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */; };
 		A96D395519D6D56900350DF5 /* YAPTPomodoroTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */; };
 		A96D395819D87B0000350DF5 /* YAPTTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395719D87B0000350DF5 /* YAPTTimer.m */; };
+		A96D395A19D8B82100350DF5 /* gong.aif in Resources */ = {isa = PBXBuildFile; fileRef = A96D395919D8B82100350DF5 /* gong.aif */; };
+		A96D395C19D8B8AC00350DF5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96D395B19D8B8AC00350DF5 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoroTestCase.m; sourceTree = "<group>"; };
 		A96D395619D87B0000350DF5 /* YAPTTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPTTimer.h; sourceTree = "<group>"; };
 		A96D395719D87B0000350DF5 /* YAPTTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTTimer.m; sourceTree = "<group>"; };
+		A96D395919D8B82100350DF5 /* gong.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = gong.aif; path = ../gong.aif; sourceTree = "<group>"; };
+		A96D395B19D8B8AC00350DF5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96D395C19D8B8AC00350DF5 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,7 @@
 		A910AEFB19CDCA9F0026E2D7 = {
 			isa = PBXGroup;
 			children = (
+				A96D395B19D8B8AC00350DF5 /* AudioToolbox.framework */,
 				A910AF0619CDCAA00026E2D7 /* YAPT */,
 				A910AF2019CDCAA00026E2D7 /* YAPTTests */,
 				A910AF0519CDCAA00026E2D7 /* Products */,
@@ -106,6 +112,7 @@
 		A910AF0719CDCAA00026E2D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A96D395919D8B82100350DF5 /* gong.aif */,
 				A910AF0819CDCAA00026E2D7 /* Info.plist */,
 				A910AF0919CDCAA00026E2D7 /* main.m */,
 			);
@@ -240,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A910AF1319CDCAA00026E2D7 /* Main.storyboard in Resources */,
+				A96D395A19D8B82100350DF5 /* gong.aif in Resources */,
 				A910AF1819CDCAA00026E2D7 /* LaunchScreen.xib in Resources */,
 				A910AF1519CDCAA00026E2D7 /* Images.xcassets in Resources */,
 			);
