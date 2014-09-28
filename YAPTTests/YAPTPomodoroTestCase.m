@@ -43,7 +43,12 @@
     XCTAssertLessThanOrEqual([pomodoro.startTime timeIntervalSinceNow], 0.0f);
 }
 
-- (void)testRemainingTimeCalculation {
+- (void)testRemainingTimeForNewCalculation {
+    YAPTPomodoro *pomodoro = [[YAPTPomodoro alloc] init];
+    XCTAssertEqual(pomodoro.pomodoroDuration, pomodoro.remainingTime);
+}
+
+- (void)testRemainingTimeForActiveCalculation {
     YAPTPomodoro *pomodoro = [[YAPTPomodoro alloc] init];
     [pomodoro startPomodoro];
     

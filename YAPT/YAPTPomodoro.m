@@ -33,7 +33,7 @@
     NSTimeInterval timeRemaining = 0.0f;
     
     // if we are active, return the time remaining
-    if (self.state == pomodoroActiveState) {
+    if (self.state == pomodoroActiveState || self.state == pomodoroNewState) {
         
         // calculate the time since the pomodoro Started
         timeRemaining = self.pomodoroDuration + [self.startTime timeIntervalSinceNow];

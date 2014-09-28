@@ -16,6 +16,7 @@
 		A910AF3119CE10B50026E2D7 /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF3019CE10B50026E2D7 /* RoundButton.m */; };
 		A96D395319D6C6BD00350DF5 /* YAPTPomodoro.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */; };
 		A96D395519D6D56900350DF5 /* YAPTPomodoroTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */; };
+		A96D395819D87B0000350DF5 /* YAPTTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395719D87B0000350DF5 /* YAPTTimer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		A96D395119D6C6BC00350DF5 /* YAPTPomodoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPTPomodoro.h; sourceTree = "<group>"; };
 		A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoro.m; sourceTree = "<group>"; };
 		A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoroTestCase.m; sourceTree = "<group>"; };
+		A96D395619D87B0000350DF5 /* YAPTTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPTTimer.h; sourceTree = "<group>"; };
+		A96D395719D87B0000350DF5 /* YAPTTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 			children = (
 				A910AF0E19CDCAA00026E2D7 /* ViewController.h */,
 				A910AF0F19CDCAA00026E2D7 /* ViewController.m */,
+				A96D395619D87B0000350DF5 /* YAPTTimer.h */,
+				A96D395719D87B0000350DF5 /* YAPTTimer.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				A910AF0D19CDCAA00026E2D7 /* AppDelegate.m in Sources */,
 				A96D395319D6C6BD00350DF5 /* YAPTPomodoro.m in Sources */,
 				A910AF0A19CDCAA00026E2D7 /* main.m in Sources */,
+				A96D395819D87B0000350DF5 /* YAPTTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "YAPTPomodoro.h"
+#import "YAPTTimer.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <YAPTTImerDelegate>
 
 @end

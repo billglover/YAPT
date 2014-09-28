@@ -16,3 +16,4 @@
  - [Lerg](https://gist.github.com/Lerg/b0a643a13f751747976f) - for the App icon creation script
  - [Tommy](http://stackoverflow.com/a/13755158) - for how to ensure touch events are only handled inside a circular button
  - [Reda](http://robots.thoughtbot.com/designing-for-ios-taming-uibutton) - for the description of how to add a CAShapeLayer to a UIButton
+ - [highlycaffeinated](http://stackoverflow.com/questions/6253666/make-a-two-digit-string-from-a-single-digit-integer) - for converting an NSTimeInterval to minutes and seconds
