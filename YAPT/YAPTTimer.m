@@ -15,6 +15,7 @@
 
 @property (nonatomic, readwrite) YAPTPomodoro* pomodoro;
 @property (nonatomic, strong, readwrite) NSTimer* timer;
+@property (nonatomic, strong, readwrite) NSDate *timeAtLastMajorTick;
 
 @end
 
@@ -30,6 +31,9 @@
         // start the pomodoro
         [self.pomodoro startPomodoro];
         NSLog(@"Starting pomodoro at: %@", self.pomodoro.startTime);
+        
+        // keep track of major ticks
+        self.timeAtLastMajorTick = [self.pomodoro.startTime copy];
         
         // set the interface update timer
         self.timer = [NSTimer timerWithTimeInterval:TIMER_TICK_MINOR
@@ -118,9 +122,11 @@
     if (self.pomodoro.remainingTime <= 0.0) {
         [self timerComplete];
     }
-    
+        
     // for now, fire the major tick on each minor tick
-    [self timerTickMajor];
+    if ((int)[self.timeAtLastMajorTick timeIntervalSinceNow] <= -1 || self.timeAtLastMajorTick == self.pomodoro.startTime) {
+        [self timerTickMajor];
+    }
 }
 
 - (void)timerTickMajor {
@@ -128,6 +134,9 @@
     if ([self.delegate respondsToSelector:@selector(handleTimerTickEvent)]) {
         [self.delegate handleTimerTickEvent];
     }
+    
+    // update the interval tracker
+    self.timeAtLastMajorTick = [NSDate date];
 }
 
 - (void)timerComplete {
