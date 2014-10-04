@@ -16,6 +16,7 @@
 @property (strong, nonatomic, readwrite) YAPTPomodoro *currentPomodoro;
 @property (strong, nonatomic, readwrite) YAPTTimer *timer;
 @property (nonatomic, readwrite) BOOL yaptGongSoundEnabled;
+@property (nonatomic, readwrite) BOOL yaptTickSoundEnabled;
 @end
 
 @implementation ViewController
@@ -114,6 +115,13 @@
         [prefs setBool:YES forKey:@"yaptGongSoundEnabled"];
         self.yaptGongSoundEnabled = YES;
     }
+    
+    if ([prefs objectForKey:@"yaptTickSoundEnabled"]) {
+        self.yaptTickSoundEnabled = [prefs boolForKey:@"yaptTickSoundEnabled"];
+    } else {
+        [prefs setBool:YES forKey:@"yaptTickSoundEnabled"];
+        self.yaptTickSoundEnabled = YES;
+    }
 }
 
 - (void)willTerminate {
@@ -201,6 +209,15 @@
     }
 }
 
+- (void)playTickSound {
+    if (self.yaptTickSoundEnabled) {
+        NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"tick" ofType:@"aif"];
+        SystemSoundID soundID;
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
+        AudioServicesPlaySystemSound(soundID);
+    }
+}
+
 #pragma mark - Getters & Setters
 
 - (YAPTPomodoro *)currentPomodoro {
@@ -221,6 +238,11 @@
 #pragma mark - Timer Delegate
 
 - (void)handleTimerTickEvent {
+    
+    // play tick
+    [self playTickSound];
+    
+    // update display
     [self updateTimerDisplay];
 }
 

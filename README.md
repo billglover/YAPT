@@ -20,3 +20,4 @@
 
 ### Sounds ###
  - [akisute](https://github.com/akisute/YourTurn/blob/master/gong.aif) - gong.aif
+ - [keijiro](https://github.com/keijiro/cl/blob/master/Assets/Audio%20Clips/Tick.aif) - tick.aif

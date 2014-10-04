@@ -15,6 +15,7 @@
 		A910AF1819CDCAA00026E2D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A910AF1619CDCAA00026E2D7 /* LaunchScreen.xib */; };
 		A910AF3119CE10B50026E2D7 /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF3019CE10B50026E2D7 /* RoundButton.m */; };
 		A9383F9519E0617100852215 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A9383F9419E0617000852215 /* Settings.bundle */; };
+		A967339419E09239005AA606 /* tick.aif in Resources */ = {isa = PBXBuildFile; fileRef = A967339319E09239005AA606 /* tick.aif */; };
 		A96D395319D6C6BD00350DF5 /* YAPTPomodoro.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */; };
 		A96D395519D6D56900350DF5 /* YAPTPomodoroTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */; };
 		A96D395819D87B0000350DF5 /* YAPTTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395719D87B0000350DF5 /* YAPTTimer.m */; };
@@ -48,6 +49,7 @@
 		A910AF2F19CE10B50026E2D7 /* RoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
 		A910AF3019CE10B50026E2D7 /* RoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
 		A9383F9419E0617000852215 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A967339319E09239005AA606 /* tick.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tick.aif; path = ../../YAPT_old/YAPT/tick.aif; sourceTree = "<group>"; };
 		A96D395119D6C6BC00350DF5 /* YAPTPomodoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPTPomodoro.h; sourceTree = "<group>"; };
 		A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoro.m; sourceTree = "<group>"; };
 		A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoroTestCase.m; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				A96D395919D8B82100350DF5 /* gong.aif */,
+				A967339319E09239005AA606 /* tick.aif */,
 				A910AF0819CDCAA00026E2D7 /* Info.plist */,
 				A910AF0919CDCAA00026E2D7 /* main.m */,
 			);
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A910AF1319CDCAA00026E2D7 /* Main.storyboard in Resources */,
+				A967339419E09239005AA606 /* tick.aif in Resources */,
 				A96D395A19D8B82100350DF5 /* gong.aif in Resources */,
 				A9383F9519E0617100852215 /* Settings.bundle in Resources */,
 				A910AF1819CDCAA00026E2D7 /* LaunchScreen.xib in Resources */,

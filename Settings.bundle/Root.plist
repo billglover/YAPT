@@ -8,6 +8,16 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
+			<string>Play Tick</string>
+			<key>Key</key>
+			<string>yaptTickSoundEnabled</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
 			<string>Play Gong</string>
 			<key>Key</key>
 			<string>yaptGongSoundEnabled</string>
