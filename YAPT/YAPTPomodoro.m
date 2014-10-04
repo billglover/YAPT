@@ -12,6 +12,7 @@
 
 @interface YAPTPomodoro()
 @property (nonatomic, strong, readwrite) NSDate *startTime;
+@property (nonatomic, readwrite) NSTimeInterval pomodoroDuration;
 @property (nonatomic, readwrite) PomodoroState state;
 @end
 
@@ -67,5 +68,26 @@
     // set the state
     self.state = pomodoroVoidState;
 }
+
+#pragma mark - Serialisation
+
+- (void) encodeWithCoder : (NSCoder *)encoder {
+    [encoder encodeObject:self.startTime forKey:@"startTime"];
+    [encoder encodeDouble:self.pomodoroDuration forKey:@"pomodoroDuration"];
+    [encoder encodeInteger:self.state forKey:@"state"];
+}
+
+-(id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if ( self != nil ) {
+        //decode the properties
+        self.startTime = [decoder decodeObjectForKey:@"startTime"];
+        self.pomodoroDuration = [decoder decodeDoubleForKey:@"pomodoroDuration"];
+        self.state = [decoder decodeIntegerForKey:@"state"];
+    }
+    return self;
+}
+
 
 @end

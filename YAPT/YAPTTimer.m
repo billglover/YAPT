@@ -49,6 +49,26 @@
 
 }
 
+- (void)suspendTimer {
+    NSLog(@"Suspending pomodoro at: %@", [NSDate date]);
+    
+    // void the interface update timer
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)resumeTimer {
+    NSLog(@"Resuming pomodoro at: %@", [NSDate date]);
+    
+    // set the interface update timer
+    self.timer = [NSTimer timerWithTimeInterval:TIMER_TICK_MINOR
+                                         target:self
+                                       selector:@selector(timerTickMinor:)
+                                       userInfo:nil
+                                        repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
 - (void)abortTimer {
     
     // mark the pomodoro as void
@@ -57,6 +77,9 @@
     
     // clear the notification
     
+    // void the interface update timer
+    [self.timer invalidate];
+    self.timer = nil;
     
     // fire the timerComplete event
     [self timerComplete];
@@ -84,10 +107,6 @@
 }
 
 - (void)timerComplete {
-    // void the interface update timer
-    [self.timer invalidate];
-    self.timer = nil;
-    
     // let the delegate know the timer is complete
     if ([self.delegate respondsToSelector:@selector(handleTimerComplete)]) {
         [self.delegate handleTimerComplete];

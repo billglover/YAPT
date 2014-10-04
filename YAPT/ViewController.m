@@ -24,12 +24,92 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // subscribe to notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willResignActive)
+                                                 name:@"willResignActive" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didEnterBackground)
+                                                 name:@"didEnterBackground" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willEnterForeground)
+                                                 name:@"willEnterForeground" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didBecomeActive)
+                                                 name:@"didBecomeActive" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willTerminate)
+                                                 name:@"willTerminate" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)willResignActive {
+    NSLog(@"YAPT willResignActive");
+    
+    // if we have an active pomodoro pause the timer
+    if (self.currentPomodoro.state == pomodoroActiveState) {
+        [self.timer suspendTimer];
+    }
+}
+
+- (void)didEnterBackground {
+    NSLog(@"YAPT didEnterBackground");
+    
+    // save the current pomodoro
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:self.currentPomodoro];
+    [prefs setObject:myEncodedObject forKey:@"currentPomodoro"];
+}
+
+- (void)willEnterForeground {
+    NSLog(@"YAPT willEnterForeground");
+    
+    // resture the saved pomodoro
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodedObject = [prefs objectForKey:@"currentPomodoro" ];
+    [prefs removeObjectForKey:@"currentPomodoro" ];
+    
+    if (myEncodedObject) {
+        YAPTPomodoro *obj = (YAPTPomodoro *)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
+        self.currentPomodoro = obj;
+    }
+    
+}
+
+- (void)didBecomeActive {
+    NSLog(@"YAPT didBecomeActive");
+    
+    // update the display
+    [self resetDisplay];
+    
+    // if we have an active pomodoro resume the timer
+    if (self.currentPomodoro.state == pomodoroActiveState) {
+        [self.timer resumeTimer];
+    }
+}
+
+- (void)willTerminate {
+    NSLog(@"YAPT willTerminate");
+    
+    // abort current pomodoro
+    if (self.currentPomodoro.state == pomodoroActiveState) {
+        [self.timer abortTimer];
+    }
+    
+    // clear any saved pomodoros
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs removeObjectForKey:@"currentPomodoro" ];
+}
+
 
 #pragma mark - User Interaction
 

@@ -24,6 +24,8 @@
 @property (nonatomic, weak, readwrite) id <YAPTTImerDelegate> delegate;
 
 - (void)startTimerForPomodoro:(YAPTPomodoro *)pomodoro;
+- (void)suspendTimer;
+- (void)resumeTimer;
 - (void)abortTimer;
 
 @end
