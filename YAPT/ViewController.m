@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerCountdownLabel;
 @property (strong, nonatomic, readwrite) YAPTPomodoro *currentPomodoro;
 @property (strong, nonatomic, readwrite) YAPTTimer *timer;
+@property (nonatomic, readwrite) BOOL yaptGongSoundEnabled;
 @end
 
 @implementation ViewController
@@ -104,6 +105,15 @@
             [self.timer resumeTimer];
         }
     }
+    
+    // re-load settings incase they have changed while we were in the background
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if ([prefs objectForKey:@"yaptGongSoundEnabled"]) {
+        self.yaptGongSoundEnabled = [prefs boolForKey:@"yaptGongSoundEnabled"];
+    } else {
+        [prefs setBool:YES forKey:@"yaptGongSoundEnabled"];
+        self.yaptGongSoundEnabled = YES;
+    }
 }
 
 - (void)willTerminate {
@@ -181,10 +191,14 @@
 }
 
 - (void)playGongSound {
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"gong" ofType:@"aif"];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
-    AudioServicesPlayAlertSound (soundID);
+    if (self.yaptGongSoundEnabled) {
+        NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"gong" ofType:@"aif"];
+        SystemSoundID soundID;
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
+        AudioServicesPlayAlertSound (soundID);
+    } else {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
 }
 
 #pragma mark - Getters & Setters

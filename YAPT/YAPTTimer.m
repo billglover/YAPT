@@ -85,14 +85,28 @@
 }
 
 - (void)scheduleLocalNotification {
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    BOOL yaptGongSoundEnabled;
+    
+    if ([prefs objectForKey:@"yaptGongSoundEnabled"]) {
+        yaptGongSoundEnabled = [prefs boolForKey:@"yaptGongSoundEnabled"];
+    } else {
+        [prefs setBool:YES forKey:@"yaptGongSoundEnabled"];
+        yaptGongSoundEnabled = YES;
+    }
+    
     NSDate *fireDate = [NSDate dateWithTimeInterval:self.pomodoro.pomodoroDuration sinceDate:self.pomodoro.startTime];
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     
     localNotification.fireDate = fireDate;
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.alertBody = @"Pomodoro complete";
-    localNotification.soundName = @"gong.aif";
     localNotification.applicationIconBadgeNumber = 1;
+    
+    if (yaptGongSoundEnabled) {
+        localNotification.soundName = @"gong.aif";
+    }
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }

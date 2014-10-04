@@ -14,6 +14,7 @@
 		A910AF1519CDCAA00026E2D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A910AF1419CDCAA00026E2D7 /* Images.xcassets */; };
 		A910AF1819CDCAA00026E2D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A910AF1619CDCAA00026E2D7 /* LaunchScreen.xib */; };
 		A910AF3119CE10B50026E2D7 /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF3019CE10B50026E2D7 /* RoundButton.m */; };
+		A9383F9519E0617100852215 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A9383F9419E0617000852215 /* Settings.bundle */; };
 		A96D395319D6C6BD00350DF5 /* YAPTPomodoro.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */; };
 		A96D395519D6D56900350DF5 /* YAPTPomodoroTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */; };
 		A96D395819D87B0000350DF5 /* YAPTTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395719D87B0000350DF5 /* YAPTTimer.m */; };
@@ -46,6 +47,7 @@
 		A910AF2219CDCAA00026E2D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A910AF2F19CE10B50026E2D7 /* RoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
 		A910AF3019CE10B50026E2D7 /* RoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
+		A9383F9419E0617000852215 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A96D395119D6C6BC00350DF5 /* YAPTPomodoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPTPomodoro.h; sourceTree = "<group>"; };
 		A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoro.m; sourceTree = "<group>"; };
 		A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoroTestCase.m; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		A910AEFB19CDCA9F0026E2D7 = {
 			isa = PBXGroup;
 			children = (
+				A9383F9419E0617000852215 /* Settings.bundle */,
 				A96D395B19D8B8AC00350DF5 /* AudioToolbox.framework */,
 				A910AF0619CDCAA00026E2D7 /* YAPT */,
 				A910AF2019CDCAA00026E2D7 /* YAPTTests */,
@@ -248,6 +251,7 @@
 			files = (
 				A910AF1319CDCAA00026E2D7 /* Main.storyboard in Resources */,
 				A96D395A19D8B82100350DF5 /* gong.aif in Resources */,
+				A9383F9519E0617100852215 /* Settings.bundle in Resources */,
 				A910AF1819CDCAA00026E2D7 /* LaunchScreen.xib in Resources */,
 				A910AF1519CDCAA00026E2D7 /* Images.xcassets in Resources */,
 			);
