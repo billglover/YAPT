@@ -110,7 +110,6 @@
     [prefs removeObjectForKey:@"currentPomodoro" ];
 }
 
-
 #pragma mark - User Interaction
 
 - (IBAction)progressButtonPress:(RoundButton *)sender {

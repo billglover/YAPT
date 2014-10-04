@@ -31,9 +31,6 @@
         [self.pomodoro startPomodoro];
         NSLog(@"Starting pomodoro at: %@", self.pomodoro.startTime);
         
-        // set the notification
-        
-        
         // set the interface update timer
         self.timer = [NSTimer timerWithTimeInterval:TIMER_TICK_MINOR
                                              target:self
@@ -74,8 +71,6 @@
     // mark the pomodoro as void
     [self.pomodoro voidPomodoro];
     NSLog(@"Voiding pomodoro at: %@", [NSDate date]);
-    
-    // clear the notification
     
     // void the interface update timer
     [self.timer invalidate];
