@@ -8,7 +8,7 @@
 
 #import "YAPTPomodoro.h"
 
-#define POMODORO_DURATION 25.0 * 60.0 // 25 minutes expressed as seconds
+#define POMODORO_DURATION 0.2 * 60.0 // 25 minutes expressed as seconds
 
 @interface YAPTPomodoro()
 @property (nonatomic, strong, readwrite) NSDate *startTime;

@@ -39,6 +39,8 @@
                                             repeats:YES];
         [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
         
+        // set the notification
+        [self scheduleLocalNotification];
         
     } else {
         NSLog(@"Unable to start YAPTTimer without valid pomodoro");
@@ -80,6 +82,19 @@
     [self timerComplete];
     
     
+}
+
+- (void)scheduleLocalNotification {
+    NSDate *fireDate = [NSDate dateWithTimeInterval:self.pomodoro.pomodoroDuration sinceDate:self.pomodoro.startTime];
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
+    localNotification.fireDate = fireDate;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = @"Pomodoro complete";
+    localNotification.soundName = [[NSBundle mainBundle] pathForResource:@"gong" ofType:@"aif"];
+    localNotification.applicationIconBadgeNumber = 1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 #pragma mark - Timer Events
