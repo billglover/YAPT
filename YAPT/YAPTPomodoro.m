@@ -8,7 +8,7 @@
 
 #import "YAPTPomodoro.h"
 
-#define POMODORO_DURATION 0.2 * 60.0 // 25 minutes expressed as seconds
+#define POMODORO_DURATION 25 * 60.0 // 25 minutes expressed as seconds
 
 @interface YAPTPomodoro()
 @property (nonatomic, strong, readwrite) NSDate *startTime;
@@ -67,6 +67,11 @@
     
     // set the state
     self.state = pomodoroVoidState;
+}
+
+- (void)completePomodoro {
+    // set the state
+    self.state = pomodoroCompleteState;
 }
 
 #pragma mark - Serialisation

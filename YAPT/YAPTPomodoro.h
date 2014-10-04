@@ -24,5 +24,6 @@ typedef NS_ENUM(NSInteger, PomodoroState) {
 
 - (void)startPomodoro;
 - (void)voidPomodoro;
+- (void)completePomodoro;
 
 @end

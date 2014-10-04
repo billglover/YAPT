@@ -15,7 +15,7 @@
 @optional
 
 - (void)handleTimerTickEvent;
-- (void)handleTimerComplete;
+- (void)handleTimerComplete:(BOOL)withSound;
 
 @end
 

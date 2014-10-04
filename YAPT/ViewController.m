@@ -45,6 +45,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(willTerminate)
                                                  name:@"willTerminate" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveLocalNotification:)
+                                                 name:@"didReceiveLocalNotification" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,7 +96,13 @@
     
     // if we have an active pomodoro resume the timer
     if (self.currentPomodoro.state == pomodoroActiveState) {
-        [self.timer resumeTimer];
+        
+        // but only if the active pomodoro isn't already complete
+        if (self.currentPomodoro.remainingTime <= 0.0) {
+            [self handleTimerComplete:FALSE];
+        } else {
+            [self.timer resumeTimer];
+        }
     }
 }
 
@@ -108,6 +117,13 @@
     // clear any saved pomodoros
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs removeObjectForKey:@"currentPomodoro" ];
+}
+
+- (void)didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSLog(@"Local notification received");
+    
+    // complete the timer but don't play sound
+    [self handleTimerComplete:FALSE];
 }
 
 #pragma mark - User Interaction
@@ -194,11 +210,15 @@
     [self updateTimerDisplay];
 }
 
-- (void)handleTimerComplete {
-    NSLog(@"Timer complete event fired");
+- (void)handleTimerComplete:(BOOL)withSound {
     
     // play the gong
-    [self playGongSound];
+    if (withSound) {
+        [self playGongSound];
+    }
+    
+    // mark the current pomodoro as complete
+    [self.currentPomodoro completePomodoro];
     
     // discard the pomodoro
     self.timer = nil;

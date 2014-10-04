@@ -12,10 +12,13 @@
 
 @interface ViewController : UIViewController <YAPTTImerDelegate>
 
+/*
 - (void)willResignActive;
 - (void)didEnterBackground;
 - (void)willEnterForeground;
 - (void)didBecomeActive;
 - (void)willTerminate;
+- (void)didReceiveLocalNotification:(UILocalNotification *)notification;
+*/
 
 @end

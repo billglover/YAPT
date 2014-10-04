@@ -91,7 +91,7 @@
     localNotification.fireDate = fireDate;
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.alertBody = @"Pomodoro complete";
-    localNotification.soundName = [[NSBundle mainBundle] pathForResource:@"gong" ofType:@"aif"];
+    localNotification.soundName = @"gong.aif";
     localNotification.applicationIconBadgeNumber = 1;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -117,9 +117,16 @@
 }
 
 - (void)timerComplete {
+    // suspend the timer
+    [self suspendTimer];
+    
+    // set the pomodoro state as complete
+    [self.pomodoro completePomodoro];
+    NSLog(@"Completing pomodoro at: %@", [NSDate date]);
+    
     // let the delegate know the timer is complete
-    if ([self.delegate respondsToSelector:@selector(handleTimerComplete)]) {
-        [self.delegate handleTimerComplete];
+    if ([self.delegate respondsToSelector:@selector(handleTimerComplete:)]) {
+        [self.delegate handleTimerComplete:TRUE];
     }
 }
 
