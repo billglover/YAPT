@@ -140,6 +140,9 @@
 - (void)didReceiveLocalNotification:(UILocalNotification *)notification {
     NSLog(@"Local notification received");
     
+    // clear all outstanding notifications
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
     // complete the timer but don't play sound
     [self handleTimerComplete:FALSE];
 }
