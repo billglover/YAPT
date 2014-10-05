@@ -85,9 +85,10 @@
     // cancel all local notifications
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
-    // fire the timerComplete event
-    [self timerComplete];
-    
+    // let the delegate know the timer is complete
+    if ([self.delegate respondsToSelector:@selector(handleTimerComplete:)]) {
+        [self.delegate handleTimerComplete:FALSE];
+    }
     
 }
 
