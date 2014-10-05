@@ -178,10 +178,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A910AF2719CDCAA00026E2D7 /* Build configuration list for PBXNativeTarget "YAPT" */;
 			buildPhases = (
+				A967339519E10175005AA606 /* ShellScript */,
 				A910AF0019CDCAA00026E2D7 /* Sources */,
 				A910AF0119CDCAA00026E2D7 /* Frameworks */,
 				A910AF0219CDCAA00026E2D7 /* Resources */,
-				A967339519E10175005AA606 /* ShellScript */,
 			);
 			buildRules = (
 			);
