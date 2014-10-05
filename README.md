@@ -1,16 +1,26 @@
 # YAPT - Yet Another Pomodoro Timer #
 
-## Version 1.0 Requirements ##
- - The application must run on an iPhone
- - The application must run on iOS8
- - The application must be able to count down 1 Pomodoro
- - The countdown timer must be displayed on screen
- - The application must provide audible notification when the Pomodoro is complete
- - The application must provide notification when the Pomodoro is complete even if it is running in the background
- - The countdown timer must continue to run if the application is put into the background
- - The application must tick on each second of the countdown
- - It must be possible to disable all sound effects
- - It must be possible to abandon a Pomodoro
+> **Note:** 
+> Currently accepting beta testers through Test Flight. Open an issue with your email address to participate.
+
+Use this simple timer to help break up your day into small blocks of uninterrupted work. Get interrupted before the timer rings then you must abort the timer and start again. You'd be surprised at how many times you are interrupted or distracted.
+
+The timer is basic, but deliberately so. More features are in the works but I want to ensure these don't distract your from the task in hand.
+
+This App is in no-way affiliated with The Pomodoro Technique® developed by Francesco Cirillo. For more on the technique (which doesn't require the use of any App at all), please visit the [official site](http://pomodorotechnique.com/)
+
+## Features in v1.0:
+ - 25 minute countdown timer
+ - nothing else to distract your from your 25 minute sessions
+ - optional gong on completion of your 25 minute period
+ - optional tick, tick, tick, ...
+ - no need to keep the app running (every little ounce of battery life is important)
+
+Features planned:
+ - chalk mark progress tracker (the app icon gives a hint)
+ - break timer (because we all need a break)
+ - stats, stats, and more stats (because you won't believe how many times you are interrupted)
+
 
 ## Acknowledgements ##
  - [Lerg](https://gist.github.com/Lerg/b0a643a13f751747976f) - for the App icon creation script
