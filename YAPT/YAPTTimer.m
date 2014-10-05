@@ -82,6 +82,9 @@
     [self.timer invalidate];
     self.timer = nil;
     
+    // cancel all local notifications
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
     // fire the timerComplete event
     [self timerComplete];
     
