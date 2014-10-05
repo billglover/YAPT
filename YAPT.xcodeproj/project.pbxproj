@@ -181,6 +181,7 @@
 				A910AF0019CDCAA00026E2D7 /* Sources */,
 				A910AF0119CDCAA00026E2D7 /* Frameworks */,
 				A910AF0219CDCAA00026E2D7 /* Resources */,
+				A967339519E10175005AA606 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -269,6 +270,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A967339519E10175005AA606 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = /Users/bill/Developer/YAPT/Scripts/update_build_version.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A910AF0019CDCAA00026E2D7 /* Sources */ = {

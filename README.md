@@ -17,6 +17,8 @@
  - [Tommy](http://stackoverflow.com/a/13755158) - for how to ensure touch events are only handled inside a circular button
  - [Reda](http://robots.thoughtbot.com/designing-for-ios-taming-uibutton) - for the description of how to add a CAShapeLayer to a UIButton
  - [highlycaffeinated](http://stackoverflow.com/questions/6253666/make-a-two-digit-string-from-a-single-digit-integer) - for converting an NSTimeInterval to minutes and seconds
+ - [Martin Rybak](http://objcsharp.wordpress.com/2013/10/01/how-to-automatically-update-xcode-build-numbers-from-git/) - for how to use Git to set build/version numbers.
+ - [Kyle Fuller](http://kylefuller.co.uk/posts/versioning-with-xcode-and-git/) - for how to use Git to set build/version numbers.
 
 ### Sounds ###
  - [akisute](https://github.com/akisute/YourTurn/blob/master/gong.aif) - gong.aif
