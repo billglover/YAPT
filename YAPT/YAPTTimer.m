@@ -124,7 +124,10 @@
     }
         
     // for now, fire the major tick on each minor tick
-    if ((int)[self.timeAtLastMajorTick timeIntervalSinceNow] <= -1 || self.timeAtLastMajorTick == self.pomodoro.startTime) {
+    float current = [self.pomodoro.startTime timeIntervalSinceNow];
+    float previous = [self.pomodoro.startTime timeIntervalSinceDate:self.timeAtLastMajorTick];
+    
+    if (current - previous <= - 1.0 + TIMER_TICK_MINOR) {
         [self timerTickMajor];
     }
 }
