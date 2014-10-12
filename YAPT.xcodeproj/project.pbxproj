@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A909B95919E999CA00157373 /* ChalkCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A909B95819E999CA00157373 /* ChalkCollectionViewCell.m */; };
 		A910AF0A19CDCAA00026E2D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF0919CDCAA00026E2D7 /* main.m */; };
 		A910AF0D19CDCAA00026E2D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF0C19CDCAA00026E2D7 /* AppDelegate.m */; };
 		A910AF1019CDCAA00026E2D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A910AF0F19CDCAA00026E2D7 /* ViewController.m */; };
@@ -21,6 +22,7 @@
 		A96D395819D87B0000350DF5 /* YAPTTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D395719D87B0000350DF5 /* YAPTTimer.m */; };
 		A96D395A19D8B82100350DF5 /* gong.aif in Resources */ = {isa = PBXBuildFile; fileRef = A96D395919D8B82100350DF5 /* gong.aif */; };
 		A96D395C19D8B8AC00350DF5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96D395B19D8B8AC00350DF5 /* AudioToolbox.framework */; };
+		A979627E19E972CC00EFF669 /* CounterCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A979627D19E972CC00EFF669 /* CounterCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A909B95719E999CA00157373 /* ChalkCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChalkCollectionViewCell.h; sourceTree = "<group>"; };
+		A909B95819E999CA00157373 /* ChalkCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChalkCollectionViewCell.m; sourceTree = "<group>"; };
 		A910AF0419CDCAA00026E2D7 /* YAPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YAPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A910AF0819CDCAA00026E2D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A910AF0919CDCAA00026E2D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 		A96D395719D87B0000350DF5 /* YAPTTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTTimer.m; sourceTree = "<group>"; };
 		A96D395919D8B82100350DF5 /* gong.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = gong.aif; path = ../gong.aif; sourceTree = "<group>"; };
 		A96D395B19D8B8AC00350DF5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A979627C19E972CC00EFF669 /* CounterCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CounterCollectionViewController.h; sourceTree = "<group>"; };
+		A979627D19E972CC00EFF669 /* CounterCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,8 @@
 			children = (
 				A910AF2F19CE10B50026E2D7 /* RoundButton.h */,
 				A910AF3019CE10B50026E2D7 /* RoundButton.m */,
+				A909B95719E999CA00157373 /* ChalkCollectionViewCell.h */,
+				A909B95819E999CA00157373 /* ChalkCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -158,6 +166,8 @@
 				A910AF0F19CDCAA00026E2D7 /* ViewController.m */,
 				A96D395619D87B0000350DF5 /* YAPTTimer.h */,
 				A96D395719D87B0000350DF5 /* YAPTTimer.m */,
+				A979627C19E972CC00EFF669 /* CounterCollectionViewController.h */,
+				A979627D19E972CC00EFF669 /* CounterCollectionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +307,8 @@
 				A910AF0D19CDCAA00026E2D7 /* AppDelegate.m in Sources */,
 				A96D395319D6C6BD00350DF5 /* YAPTPomodoro.m in Sources */,
 				A910AF0A19CDCAA00026E2D7 /* main.m in Sources */,
+				A979627E19E972CC00EFF669 /* CounterCollectionViewController.m in Sources */,
+				A909B95919E999CA00157373 /* ChalkCollectionViewCell.m in Sources */,
 				A96D395819D87B0000350DF5 /* YAPTTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

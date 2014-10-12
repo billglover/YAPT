@@ -9,14 +9,17 @@
 #import "ViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "RoundButton.h"
+#import "CounterCollectionViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet RoundButton *progressButton;
 @property (weak, nonatomic) IBOutlet UILabel *timerCountdownLabel;
+@property (weak, nonatomic) IBOutlet UIView *chalkBoardContainerView;
 @property (strong, nonatomic, readwrite) YAPTPomodoro *currentPomodoro;
 @property (strong, nonatomic, readwrite) YAPTTimer *timer;
 @property (nonatomic, readwrite) BOOL yaptGongSoundEnabled;
 @property (nonatomic, readwrite) BOOL yaptTickSoundEnabled;
+@property (nonatomic, readwrite) NSInteger pomodoroCounter;
 @end
 
 @implementation ViewController
@@ -245,6 +248,13 @@
     // play tick
     [self playTickSound];
     
+    CounterCollectionViewController *counterVC = (CounterCollectionViewController *)[self.childViewControllers firstObject];
+    
+    counterVC.count = self.pomodoroCounter;
+    self.pomodoroCounter++;
+    
+    [counterVC.collectionView reloadData];
+    
     // update display
     [self updateTimerDisplay];
 }
@@ -262,6 +272,10 @@
     // discard the pomodoro
     self.timer = nil;
     self.currentPomodoro = nil;
+    
+    // update the chalk board
+    self.pomodoroCounter++;
+    NSLog(@"Views: %lu", (unsigned long)self.chalkBoardContainerView.subviews.count);
     
     // reset the display for the next pomodoro
     [self resetDisplay];

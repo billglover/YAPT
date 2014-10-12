@@ -29,30 +29,37 @@
     return self;
 }
 
+- (void)prepareForReuse {
+    self.count = 0;
+    [self.contentView.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+}
+
 #pragma mark - Getters and Setters
 
-- (void)setCount:(int)count {
+- (void)setCount:(NSInteger)count {
     
     // make sure we keep the counter within bounds
     if (count > COUNTER_MAX) {
-        NSLog(@"Attemt to set count to %d. Capping at maximum allowed value of %d", count, COUNTER_MAX);
+        NSLog(@"Attemt to set count to %lu. Capping at maximum allowed value of %d", count, COUNTER_MAX);
         _count = COUNTER_MAX;
     } else if (count < COUNTER_MIN) {
-        NSLog(@"Attemt to set count to %d. Capping at minimum allowed value of %d", count, COUNTER_MIN);
+        NSLog(@"Attemt to set count to %lu. Capping at minimum allowed value of %d", count, COUNTER_MIN);
         _count = COUNTER_MIN;
     } else {
         _count = count;
     }
+    
+    [self setNeedsDisplay];
 }
 
 #pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect {
+    NSLog(@"Drawing block of %lu strokes", self.count);
     [self drawStrokeCountInRect:rect];
 }
 
 - (void)drawStrokeCountInRect:(CGRect)rect {
-    self.count = 5;
     for (int i = 1; i <= self.count; i++) {
         [self drawStroke:i
                   inRect:rect];

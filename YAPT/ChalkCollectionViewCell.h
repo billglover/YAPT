@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ChalkCollectionViewCell : UICollectionViewCell
-@property (nonatomic, readwrite) int count;
+@property (nonatomic, readwrite) NSInteger count;
 @property (nonatomic, readwrite) BOOL animateFinalStroke;
 @end
