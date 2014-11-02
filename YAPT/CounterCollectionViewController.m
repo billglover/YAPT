@@ -60,7 +60,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ChalkCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    NSLog(@"Fetching cell for block %lu which has %lu strokes", indexPath.item, [self numberOfStrokesForBlock:indexPath.item]);
+    NSLog(@"Fetching cell for block %lu which has %lu strokes", (long)indexPath.item, (long)[self numberOfStrokesForBlock:indexPath.item]);
     
     cell.count = [self numberOfStrokesForBlock:indexPath.item];
     

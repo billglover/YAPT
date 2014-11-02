@@ -249,11 +249,26 @@
     [self playTickSound];
     
     CounterCollectionViewController *counterVC = (CounterCollectionViewController *)[self.childViewControllers firstObject];
-    
-    counterVC.count = self.pomodoroCounter;
+
     self.pomodoroCounter++;
+    counterVC.count = self.pomodoroCounter;
     
+    // reload data and ensure we scroll to the bottom
     [counterVC.collectionView reloadData];
+
+    
+    NSInteger numberOfSections = counterVC.collectionView.numberOfSections - 1;
+    NSInteger numberOfItemsInLastSection = [counterVC.collectionView numberOfItemsInSection:numberOfSections];
+    
+    NSIndexPath *lastItemIndexPath = [NSIndexPath indexPathForItem:(numberOfItemsInLastSection - 1)
+                                                         inSection:numberOfSections];
+    
+    if (numberOfItemsInLastSection != 0) {
+        [counterVC.collectionView scrollToItemAtIndexPath:lastItemIndexPath
+                                         atScrollPosition:UICollectionViewScrollPositionBottom
+                                                 animated:YES];
+    }
+    
     
     // update display
     [self updateTimerDisplay];

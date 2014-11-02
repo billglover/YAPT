@@ -40,10 +40,10 @@
     
     // make sure we keep the counter within bounds
     if (count > COUNTER_MAX) {
-        NSLog(@"Attemt to set count to %lu. Capping at maximum allowed value of %d", count, COUNTER_MAX);
+        NSLog(@"Attemt to set count to %lu. Capping at maximum allowed value of %d", (long)count, COUNTER_MAX);
         _count = COUNTER_MAX;
     } else if (count < COUNTER_MIN) {
-        NSLog(@"Attemt to set count to %lu. Capping at minimum allowed value of %d", count, COUNTER_MIN);
+        NSLog(@"Attemt to set count to %lu. Capping at minimum allowed value of %d", (long)count, COUNTER_MIN);
         _count = COUNTER_MIN;
     } else {
         _count = count;
@@ -55,7 +55,7 @@
 #pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect {
-    NSLog(@"Drawing block of %lu strokes", self.count);
+    NSLog(@"Drawing block of %lu strokes", (long)self.count);
     [self drawStrokeCountInRect:rect];
 }
 
