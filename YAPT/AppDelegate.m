@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self updateLaunchCounter];
     
     // Request notification permissions
     /// First register notification setting with settings type like
@@ -66,6 +67,14 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"willTerminate" object:nil];
+}
+
+- (void)updateLaunchCounter {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSInteger launchCount = [prefs integerForKey:@"launchCount"];
+    launchCount++;
+    NSLog(@"Application has been launched %d times", launchCount);
+    [prefs setInteger:launchCount forKey:@"launchCount"];
 }
 
 @end

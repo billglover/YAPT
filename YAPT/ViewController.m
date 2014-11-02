@@ -20,6 +20,7 @@
 @property (nonatomic, readwrite) BOOL yaptGongSoundEnabled;
 @property (nonatomic, readwrite) BOOL yaptTickSoundEnabled;
 @property (nonatomic, readwrite) NSInteger pomodoroCounter;
+@property (weak, nonatomic) IBOutlet UILabel *shakeHintLabel;
 @end
 
 @implementation ViewController
@@ -247,6 +248,20 @@
                                          atScrollPosition:UICollectionViewScrollPositionBottom
                                                  animated:YES];
     }
+    
+    // show the hint if
+    // - the app has been launched up to 3 times
+    // - at least one pomodoro has been completed
+    // - the pomodoro count is less than 4
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSInteger launchCount = [prefs integerForKey:@"launchCount"];
+    
+    if (launchCount <= 3 && counterVC.count < 4 && counterVC.count > 0) {
+        [self performSelector:@selector(fadeInUIView:) withObject:self.shakeHintLabel afterDelay:3.0];
+        [self performSelector:@selector(fadeOutUIView:) withObject:self.shakeHintLabel afterDelay:6.0];
+    } else {
+        [self.shakeHintLabel setHidden:TRUE];
+    }
 
 }
 
@@ -254,6 +269,26 @@
     NSLog(@"Resetting the pomodoro counter");
     self.pomodoroCounter = 0;
     [self updateChalkBoard];
+}
+
+- (void)fadeOutUIView:(UIView *)view {
+    view.alpha = 1;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:1];
+    view.alpha = 0;
+    //[self.shakeHintLabel setHidden:TRUE];
+    [UIView commitAnimations];
+}
+
+- (void)fadeInUIView:(UIView *)view {
+    view.alpha = 0;
+    [self.shakeHintLabel setHidden:FALSE];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:.5];
+    view.alpha = 1;
+    [UIView commitAnimations];
 }
 
 #pragma mark - Gestures
@@ -315,7 +350,7 @@
         // update the chalk board
         [self updateChalkBoard];
         
-        NSLog(@"Completed %d pomodoros", self.pomodoroCounter);
+        NSLog(@"Completed %ld pomodoros", (long)self.pomodoroCounter);
     }
     
     // discard the pomodoro

@@ -72,13 +72,21 @@
                                     <segue destination="GCO-Pn-SL0" kind="embed" id="YuF-Ed-6qH"/>
                                 </connections>
                             </containerView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to reset the counter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJD-ef-ZvK">
+                                <rect key="frame" x="199" y="423" width="203" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.76689877719999999" green="0.18540409999999999" blue="0.18540409999999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" priority="250" constant="64" id="1F2-go-oh7"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="centerX" secondItem="Zr7-44-p9K" secondAttribute="centerX" id="71u-F6-ZFM"/>
                             <constraint firstItem="4cy-Li-epd" firstAttribute="top" secondItem="8Xj-PD-QnM" secondAttribute="bottom" constant="8" symbolic="YES" id="Kqv-R6-1BI"/>
+                            <constraint firstItem="Zr7-44-p9K" firstAttribute="top" secondItem="uJD-ef-ZvK" secondAttribute="bottom" constant="16" id="OV8-wj-mqf"/>
                             <constraint firstAttribute="bottom" secondItem="Zr7-44-p9K" secondAttribute="bottom" constant="40" id="U2e-cK-MA5"/>
+                            <constraint firstAttribute="centerX" secondItem="uJD-ef-ZvK" secondAttribute="centerX" id="Upz-OG-NsV"/>
                             <constraint firstItem="4cy-Li-epd" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="VvL-KG-6X5"/>
                             <constraint firstAttribute="centerX" secondItem="Zr7-44-p9K" secondAttribute="centerX" id="WCa-QL-imQ"/>
                             <constraint firstItem="8Xj-PD-QnM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="bja-fW-c9G"/>
@@ -99,6 +107,7 @@
                     <connections>
                         <outlet property="chalkBoardContainerView" destination="4cy-Li-epd" id="hcp-42-nEf"/>
                         <outlet property="progressButton" destination="Zr7-44-p9K" id="Q8g-lI-m5v"/>
+                        <outlet property="shakeHintLabel" destination="uJD-ef-ZvK" id="U0A-jy-I9J"/>
                         <outlet property="timerCountdownLabel" destination="8Xj-PD-QnM" id="net-S7-G7r"/>
                     </connections>
                 </viewController>
