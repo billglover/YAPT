@@ -9,14 +9,17 @@
 #import "ViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "RoundButton.h"
+#import "CounterCollectionViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet RoundButton *progressButton;
 @property (weak, nonatomic) IBOutlet UILabel *timerCountdownLabel;
+@property (weak, nonatomic) IBOutlet UIView *chalkBoardContainerView;
 @property (strong, nonatomic, readwrite) YAPTPomodoro *currentPomodoro;
 @property (strong, nonatomic, readwrite) YAPTTimer *timer;
 @property (nonatomic, readwrite) BOOL yaptGongSoundEnabled;
 @property (nonatomic, readwrite) BOOL yaptTickSoundEnabled;
+@property (nonatomic, readwrite) NSInteger pomodoroCounter;
 @end
 
 @implementation ViewController
@@ -50,6 +53,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveLocalNotification:)
                                                  name:@"didReceiveLocalNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userShookTheDevice:)
+                                                 name:@"userShookTheDevice" object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -221,6 +228,49 @@
     }
 }
 
+- (void)updateChalkBoard {
+    // update the chalk board
+    CounterCollectionViewController *counterVC = (CounterCollectionViewController *)[self.childViewControllers firstObject];
+    counterVC.count = self.pomodoroCounter;
+    
+    // reload data and ensure we scroll to the bottom
+    [counterVC.collectionView reloadData];
+    
+    NSInteger numberOfSections = counterVC.collectionView.numberOfSections - 1;
+    NSInteger numberOfItemsInLastSection = [counterVC.collectionView numberOfItemsInSection:numberOfSections];
+    
+    NSIndexPath *lastItemIndexPath = [NSIndexPath indexPathForItem:(numberOfItemsInLastSection - 1)
+                                                         inSection:numberOfSections];
+    
+    if (numberOfItemsInLastSection != 0) {
+        [counterVC.collectionView scrollToItemAtIndexPath:lastItemIndexPath
+                                         atScrollPosition:UICollectionViewScrollPositionBottom
+                                                 animated:YES];
+    }
+
+}
+
+- (void)resetPomodoroCounter {
+    NSLog(@"Resetting the pomodoro counter");
+    self.pomodoroCounter = 0;
+    [self updateChalkBoard];
+}
+
+#pragma mark - Gestures
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        // User was shaking the device. Post a notification named "shake."
+        NSLog(@"Stop shaking the device");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"userShookTheDevice" object:event];
+    }
+}
+
+- (void)userShookTheDevice:(UIEvent *)event {
+    [self resetPomodoroCounter];
+}
+
 #pragma mark - Getters & Setters
 
 - (YAPTPomodoro *)currentPomodoro {
@@ -251,13 +301,22 @@
 
 - (void)handleTimerComplete:(BOOL)withSound {
     
-    // play the gong
+    // play the gong if required
     if (withSound) {
         [self playGongSound];
     }
     
-    // mark the current pomodoro as complete
-    [self.currentPomodoro completePomodoro];
+    // check to see if the pomodoro was active
+    if (self.currentPomodoro.state == pomodoroCompleteState) {
+        // mark the current pomodoro as complete
+        [self.currentPomodoro completePomodoro];
+        self.pomodoroCounter++;
+        
+        // update the chalk board
+        [self updateChalkBoard];
+        
+        NSLog(@"Completed %d pomodoros", self.pomodoroCounter);
+    }
     
     // discard the pomodoro
     self.timer = nil;
