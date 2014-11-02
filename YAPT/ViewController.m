@@ -315,7 +315,7 @@
         // update the chalk board
         [self updateChalkBoard];
         
-        NSLog(@"Completed %d pomodoros", self.pomodoroCounter);
+        NSLog(@"Completed %ld pomodoros", (long)self.pomodoroCounter);
     }
     
     // discard the pomodoro
