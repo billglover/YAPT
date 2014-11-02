@@ -224,6 +224,28 @@
     }
 }
 
+- (void)updateChalkBoard {
+    // update the chalk board
+    CounterCollectionViewController *counterVC = (CounterCollectionViewController *)[self.childViewControllers firstObject];
+    counterVC.count = self.pomodoroCounter;
+    
+    // reload data and ensure we scroll to the bottom
+    [counterVC.collectionView reloadData];
+    
+    NSInteger numberOfSections = counterVC.collectionView.numberOfSections - 1;
+    NSInteger numberOfItemsInLastSection = [counterVC.collectionView numberOfItemsInSection:numberOfSections];
+    
+    NSIndexPath *lastItemIndexPath = [NSIndexPath indexPathForItem:(numberOfItemsInLastSection - 1)
+                                                         inSection:numberOfSections];
+    
+    if (numberOfItemsInLastSection != 0) {
+        [counterVC.collectionView scrollToItemAtIndexPath:lastItemIndexPath
+                                         atScrollPosition:UICollectionViewScrollPositionBottom
+                                                 animated:YES];
+    }
+
+}
+
 #pragma mark - Getters & Setters
 
 - (YAPTPomodoro *)currentPomodoro {
@@ -248,49 +270,32 @@
     // play tick
     [self playTickSound];
     
-    CounterCollectionViewController *counterVC = (CounterCollectionViewController *)[self.childViewControllers firstObject];
-
-    self.pomodoroCounter++;
-    counterVC.count = self.pomodoroCounter;
-    
-    // reload data and ensure we scroll to the bottom
-    [counterVC.collectionView reloadData];
-
-    
-    NSInteger numberOfSections = counterVC.collectionView.numberOfSections - 1;
-    NSInteger numberOfItemsInLastSection = [counterVC.collectionView numberOfItemsInSection:numberOfSections];
-    
-    NSIndexPath *lastItemIndexPath = [NSIndexPath indexPathForItem:(numberOfItemsInLastSection - 1)
-                                                         inSection:numberOfSections];
-    
-    if (numberOfItemsInLastSection != 0) {
-        [counterVC.collectionView scrollToItemAtIndexPath:lastItemIndexPath
-                                         atScrollPosition:UICollectionViewScrollPositionBottom
-                                                 animated:YES];
-    }
-    
-    
     // update display
     [self updateTimerDisplay];
 }
 
 - (void)handleTimerComplete:(BOOL)withSound {
     
-    // play the gong
+    // play the gong if required
     if (withSound) {
         [self playGongSound];
     }
     
-    // mark the current pomodoro as complete
-    [self.currentPomodoro completePomodoro];
+    // check to see if the pomodoro was active
+    if (self.currentPomodoro.state == pomodoroCompleteState) {
+        // mark the current pomodoro as complete
+        [self.currentPomodoro completePomodoro];
+        self.pomodoroCounter++;
+        
+        // update the chalk board
+        [self updateChalkBoard];
+        
+        NSLog(@"Completed %d pomodoros", self.pomodoroCounter);
+    }
     
     // discard the pomodoro
     self.timer = nil;
     self.currentPomodoro = nil;
-    
-    // update the chalk board
-    self.pomodoroCounter++;
-    NSLog(@"Views: %lu", (unsigned long)self.chalkBoardContainerView.subviews.count);
     
     // reset the display for the next pomodoro
     [self resetDisplay];

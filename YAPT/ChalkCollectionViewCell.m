@@ -55,7 +55,6 @@
 #pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect {
-    NSLog(@"Drawing block of %lu strokes", (long)self.count);
     [self drawStrokeCountInRect:rect];
 }
 

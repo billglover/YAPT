@@ -8,8 +8,6 @@
 
 #import "CounterCollectionViewController.h"
 
-#define NUMBER_OF_ITEMS 30
-
 @interface CounterCollectionViewController ()
 
 @end
@@ -53,27 +51,19 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return [self numberOfBlocksForCount:self.count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ChalkCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    NSLog(@"Fetching cell for block %lu which has %lu strokes", (long)indexPath.item, (long)[self numberOfStrokesForBlock:indexPath.item]);
-    
     cell.count = [self numberOfStrokesForBlock:indexPath.item];
-    
     return cell;
 }
 
 - (NSInteger)numberOfBlocksForCount:(NSInteger)count {
     if (count == 0) return 0;
-    
     NSInteger blocks = (int)(self.count / 5) + 1;
-    
     return blocks;
-    
 }
 
 - (NSInteger)numberOfStrokesForBlock:(NSInteger)block {
@@ -84,7 +74,7 @@ static NSString * const reuseIdentifier = @"Cell";
     if (block + 1 < totalBlocks) {
         strokes = 5;
     } else {
-        strokes = (NSInteger)(self.count % 5) + 1;
+        strokes = (NSInteger)(self.count % 5);
     }
     
     return strokes;
@@ -122,19 +112,5 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
-#pragma mark - Layout
-/*
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    double area = collectionView.frame.size.height * collectionView.frame.size.width;
-    double cellArea = area / NUMBER_OF_ITEMS;
-    double cellWidth = 60.0;
-    double cellHeight = cellArea / cellWidth;
-    
-    return CGSizeMake(cellWidth, cellHeight);
-}
-*/
 
 @end
