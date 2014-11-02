@@ -53,6 +53,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveLocalNotification:)
                                                  name:@"didReceiveLocalNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userShookTheDevice:)
+                                                 name:@"userShookTheDevice" object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -244,6 +248,27 @@
                                                  animated:YES];
     }
 
+}
+
+- (void)resetPomodoroCounter {
+    NSLog(@"Resetting the pomodoro counter");
+    self.pomodoroCounter = 0;
+    [self updateChalkBoard];
+}
+
+#pragma mark - Gestures
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        // User was shaking the device. Post a notification named "shake."
+        NSLog(@"Stop shaking the device");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"userShookTheDevice" object:event];
+    }
+}
+
+- (void)userShookTheDevice:(UIEvent *)event {
+    [self resetPomodoroCounter];
 }
 
 #pragma mark - Getters & Setters
