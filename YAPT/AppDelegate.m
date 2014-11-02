@@ -73,7 +73,7 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSInteger launchCount = [prefs integerForKey:@"launchCount"];
     launchCount++;
-    NSLog(@"Application has been launched %d times", launchCount);
+    NSLog(@"Application has been launched %ld times", (long)launchCount);
     [prefs setInteger:launchCount forKey:@"launchCount"];
 }
 

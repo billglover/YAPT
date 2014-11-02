@@ -109,6 +109,10 @@
         
         // but only if the active pomodoro isn't already complete
         if (self.currentPomodoro.remainingTime <= 0.0) {
+            // set the pomodoro state as complete
+            [self.currentPomodoro completePomodoro];
+            NSLog(@"Completing pomodoro at: %@", [NSDate date]);
+            
             [self handleTimerComplete:FALSE];
         } else {
             [self.timer resumeTimer];
@@ -152,6 +156,9 @@
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     // complete the timer but don't play sound
+    [self.currentPomodoro completePomodoro];
+    NSLog(@"Completing pomodoro at: %@", [NSDate date]);
+    
     [self handleTimerComplete:FALSE];
 }
 
