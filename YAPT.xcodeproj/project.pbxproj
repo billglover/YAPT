@@ -53,7 +53,7 @@
 		A910AF2F19CE10B50026E2D7 /* RoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
 		A910AF3019CE10B50026E2D7 /* RoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
 		A9383F9419E0617000852215 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		A967339319E09239005AA606 /* tick.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tick.aif; path = ../../YAPT_old/YAPT/tick.aif; sourceTree = "<group>"; };
+		A967339319E09239005AA606 /* tick.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tick.aif; path = ../tick.aif; sourceTree = "<group>"; };
 		A96D395119D6C6BC00350DF5 /* YAPTPomodoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAPTPomodoro.h; sourceTree = "<group>"; };
 		A96D395219D6C6BC00350DF5 /* YAPTPomodoro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoro.m; sourceTree = "<group>"; };
 		A96D395419D6D56900350DF5 /* YAPTPomodoroTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAPTPomodoroTestCase.m; sourceTree = "<group>"; };
